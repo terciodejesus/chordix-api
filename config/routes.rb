@@ -54,5 +54,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  root "welcome#index"
   match '/generate_html' => "application#generate_html", via: :get, as: :generate_html
 end
