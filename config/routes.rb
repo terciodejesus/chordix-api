@@ -55,5 +55,5 @@ Rails.application.routes.draw do
   #   end
 
   root "welcome#index"
-  match '/generate_html' => "application#generate_html", via: :get, as: :generate_html
+  match '/generate_html/:cipher' => "application#generate_html", via: :get, as: :generate_html
 end

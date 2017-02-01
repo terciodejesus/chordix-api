@@ -7,7 +7,12 @@ class ApplicationController < ActionController::Base
   after_filter :cors_set_access_control_headers
 
   def generate_html
-    doc = Nokogiri::HTML(open("https://www.cifraclub.com.br/legiao-urbana/pais-filhos/simplificada.html"))
+    if params[:cipher] == "pais_e_filhos"
+      doc = Nokogiri::HTML(open("https://www.cifraclub.com.br/legiao-urbana/pais-filhos/simplificada.html"))
+    elsif params[:cipher] == "sapato_velho"
+      doc = Nokogiri::HTML(open("https://www.cifraclub.com.br/roupa-nova/sapato-velho/"))
+    end
+
     render :text => doc
   end
 
